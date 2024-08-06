@@ -66,7 +66,6 @@ func (s *Storage) GetList() ([]task.Task, error) {
 	}
 
 	if rows.Err() != nil {
-		log.Println("can't get tasks by GetList:", rows.Err())
 		return nil, rows.Err()
 	}
 
@@ -129,8 +128,6 @@ func (s *Storage) SearchTasks(search string) ([]task.Task, error) {
 		log.Println("can't find tasks by SearchTasks:", err)
 		return nil, err
 	}
-
-	log.Printf("Found %d tasks", len(tasks))
 
 	return tasks, nil
 }

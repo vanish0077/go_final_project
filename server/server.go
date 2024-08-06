@@ -1,8 +1,9 @@
 package server
 
 import (
-	"go_final_project/config"
 	"net/http"
+
+	"go_final_project/config"
 )
 
 type Server struct {

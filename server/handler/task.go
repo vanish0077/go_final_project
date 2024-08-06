@@ -2,12 +2,13 @@ package handler
 
 import (
 	"encoding/json"
-	"go_final_project/storage"
-	"go_final_project/task"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
+
+	"go_final_project/storage"
+	"go_final_project/task"
 )
 
 // setJSONContentType позволяет усатновить заголовки во всех обработчиках запросов
