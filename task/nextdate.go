@@ -6,12 +6,14 @@ import (
 	"time"
 )
 
+const FormatOfDate = "20060102"
+
 func NextDate(now time.Time, date string, repeat string) (string, error) {
 	if repeat == "" {
 		return "", fmt.Errorf("repeat is empty")
 	}
 
-	validDate, err := time.Parse(formatOfDate, date)
+	validDate, err := time.Parse(FormatOfDate, date)
 	if err != nil {
 		return "", fmt.Errorf("incorrect date %v", err)
 	}
@@ -45,7 +47,7 @@ func everyDay(now, date time.Time, days string) (string, error) {
 		resultDate = resultDate.AddDate(0, 0, d)
 	}
 
-	return resultDate.Format(formatOfDate), nil
+	return resultDate.Format(FormatOfDate), nil
 }
 
 func everyYear(now, date time.Time) (string, error) {
@@ -57,5 +59,5 @@ func everyYear(now, date time.Time) (string, error) {
 		date = date.AddDate(1, 0, 0)
 	}
 
-	return date.Format(formatOfDate), nil
+	return date.Format(FormatOfDate), nil
 }

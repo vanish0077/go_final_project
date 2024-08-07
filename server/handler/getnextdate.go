@@ -8,14 +8,12 @@ import (
 	"go_final_project/task"
 )
 
-const formatOfDate = "20060102"
-
 func GetNextDate(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received reqest GetNextDate")
 
 	r.ParseForm()
 
-	now, err := time.Parse(formatOfDate, r.FormValue("now"))
+	now, err := time.Parse(FormatOfDate, r.FormValue("now"))
 	if err != nil {
 		log.Printf("Incorrect now date: %v", err)
 		http.Error(w, "Incorrect now date", http.StatusBadRequest)
